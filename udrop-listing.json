@@ -1,5 +1,5 @@
 {
-  "name": "udrop.com",
+  "name": "My Files",
   "type": "folder",
   "children": [
     {
@@ -60,26 +60,6 @@
           ]
         }
       ]
-    },
-    {
-      "name": "Documents",
-      "type": "folder",
-      "children": []
-    },
-    {
-      "name": "Images",
-      "type": "folder",
-      "children": []
-    },
-    {
-      "name": "Music",
-      "type": "folder",
-      "children": []
-    },
-    {
-      "name": "Videos",
-      "type": "folder",
-      "children": []
     }
   ]
 }
