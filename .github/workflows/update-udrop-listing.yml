@@ -2,7 +2,7 @@ name: Update udrop file listing
 
 on:
   schedule:
-    - cron: "*/30 * * * *"   # refreshes every 30 minutes
+    - cron: "*/5 * * * *"    # refreshes roughly every 5 minutes
   workflow_dispatch: {}       # adds a "Run workflow" button under the Actions tab
 
 permissions:
