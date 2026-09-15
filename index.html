@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>udrop.com — Files</title>
+<title>Files</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -77,7 +77,7 @@
 <body>
 <div class="wrap">
   <header>
-    <p class="title">udrop.com</p>
+    <p class="title" id="siteTitle">Files</p>
     <p class="subtitle">Browse your files</p>
   </header>
 
@@ -87,7 +87,7 @@
     <div class="state">Loading…</div>
   </div>
 
-  <footer>Updated automatically every 30 minutes</footer>
+  <footer>Updates automatically every few minutes</footer>
 </div>
 
 <script>
@@ -185,6 +185,8 @@ async function init(){
     const res = await fetch("udrop-listing.json", { cache: "no-store" });
     if (!res.ok) throw new Error("not found");
     const root = await res.json();
+    document.title = root.name;
+    document.getElementById("siteTitle").textContent = root.name;
     crumbs = [root];
     render();
   } catch(err){
