@@ -156,10 +156,10 @@ function render(){
     </button>`;
   });
   files.forEach(f => {
-    rowsHtml += `<button class="row file-dl" data-url="${f.url}" data-name="${f.name}">
+    rowsHtml += `<a class="row" href="${f.url}" download="${f.name}">
       <span class="icon file">${iconForFile(f.name)}</span><span class="name">${f.name}</span>
       <span class="meta">${formatSize(f.size)}</span>
-    </button>`;
+    </a>`;
   });
 
   listingEl.innerHTML = rowsHtml;
@@ -179,29 +179,7 @@ function render(){
     });
   }
 
-  listingEl.querySelectorAll(".file-dl").forEach(btn => {
-    btn.addEventListener("click", async () => {
-      const url  = btn.dataset.url;
-      const name = btn.dataset.name;
-      btn.style.opacity = "0.5";
-      btn.style.pointerEvents = "none";
-      try {
-        const res  = await fetch(url);
-        const blob = await res.blob();
-        const a    = document.createElement("a");
-        a.href     = URL.createObjectURL(blob);
-        a.download = name;
-        a.click();
-        setTimeout(() => URL.revokeObjectURL(a.href), 10000);
-      } catch {
-        // fetch failed (e.g. CORS block) — fall back to opening in new tab
-        window.open(url, "_blank");
-      } finally {
-        btn.style.opacity = "";
-        btn.style.pointerEvents = "";
-      }
-    });
-  });
+
 }
 
 async function init(){
