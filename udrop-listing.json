@@ -55,7 +55,14 @@
             {
               "name": "ref",
               "type": "folder",
-              "children": []
+              "children": [
+                {
+                  "name": "exercise-2.pdf",
+                  "type": "file",
+                  "url": "https://www.udrop.com/PHjS",
+                  "size": 427818
+                }
+              ]
             }
           ]
         }
