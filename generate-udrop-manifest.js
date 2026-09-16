@@ -72,7 +72,7 @@ async function buildTree(auth, folderId, name, depth, pathSegments, hideFolders)
     children.push({
       name: file.filename,
       type: "file",
-      url: file.url_file,
+      url: file.url_dl || file.url_file, // url_dl = direct download, fallback to viewer
       size: Number(file.fileSize) || 0,
     });
   }
